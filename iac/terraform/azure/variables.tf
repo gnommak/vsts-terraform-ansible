@@ -48,7 +48,7 @@ variable "vm_size" {
   default     = "Standard_D1"
 }
 
-varible "ssh_keys" {
+variable "ssh_keys" {
   description = "Public SSH Key."
   default = {}
 }
