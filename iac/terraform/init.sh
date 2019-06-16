@@ -7,11 +7,11 @@ touch $TF_WS
 echo "terraform {" >> $TF_WS
 echo "  backend \"azurerm\" {" >> $TF_WS
 echo "    storage_account_name = \"$STORAGE_ACCOUNT_NAME\"" >> $TF_WS
-echo "    container_name       = \"$CONTAINER_NAME\""
-echo "    key                  = \"dev.terraform.tera\""
-echo "    access_key = \"$ARM_ACCESS_KEY\""
-echo "  }"
-echo "}"
+echo "    container_name       = \"$CONTAINER_NAME\"" >> $TF_WS
+echo "    key                  = \"dev.terraform.tera\"" >> $TF_WS
+echo "    access_key = \"$ARM_ACCESS_KEY\"" >> $TF_WS
+echo "  }" >> $TF_WS
+echo "}" >> $TF_WS
 
 ls /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/
 cat $TF_WS
