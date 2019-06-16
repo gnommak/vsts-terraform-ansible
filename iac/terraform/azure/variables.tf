@@ -5,12 +5,12 @@ variable "a_key" {
 
 variable "s_a_name" { 
   description = "Storage Account Name."
-  default {}
+  default = {}
 }
 
 variable "c_name" {
-  description "Container-name."
-  default {}  
+  description = "Container-name."
+  default = {}  
 }
 
 variable "rg_prefix" {
