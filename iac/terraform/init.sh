@@ -8,6 +8,6 @@ export ARM_TENANT_ID=$4
 export ARM_ACCESS_KEY=$5
 echo "Run"
 echo $PWD
-echo $1 > 1.txt
+echo "$1" > 1.txt
 cat 1.txt
 ## terraform init  -backend-config=backend.tfvars
