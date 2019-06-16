@@ -153,10 +153,6 @@ resource "azurerm_virtual_machine" "vm" {
       key_data = "${var.ssh_key}"
     }
   }
-
-  tags {
-    environment = "Terraform Demo"
-  }
 }
 
 output "vm_ip" {
