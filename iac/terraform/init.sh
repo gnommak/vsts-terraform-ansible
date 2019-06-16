@@ -8,14 +8,16 @@ echo "************* execute terraform init"
 ## export ARM_ACCESS_KEY=$5
 
 touch /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
-echo ARM_CLIENT_ID = \"$ARM_CLIENT_ID\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
-echo ARM_CLIENT_SECRET = \"$ARM_CLIENT_SECRET\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
-echo ARM_SUBSCRIPTION_ID = \"$ARM_SUBSCRIPTION_ID\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
-echo ARM_TENANT_ID = \"$ARM_TENANT_ID\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
-echo ARM_ACCESS_KEY = \"$ARM_ACCESS_KEY\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo arm_client_id = \"$ARM_CLIENT_ID\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo arm_client_secret = \"$ARM_CLIENT_SECRET\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo arm_subscription_id = \"$ARM_SUBSCRIPTION_ID\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo arm_tenant_id = \"$ARM_TENANT_ID\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo a_key = \"$ARM_ACCESS_KEY\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo ssh_key = \"$SSH_PUB_KEY\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo s_a_name = \"$STORAGE_ACCOUNT_NAME\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo c_name = \"$CONTAINER_NAME\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
 
-cat /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
-ls -a /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/
+cut /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
 
 echo "Run"
 ## terraform init  -backend-config=backend.tfvars
