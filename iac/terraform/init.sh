@@ -7,7 +7,4 @@ export ARM_SUBSCRIPTION_ID=$3
 export ARM_TENANT_ID=$4
 export ARM_ACCESS_KEY=$5
 echo "Run"
-echo $PWD
-echo $ARM_CLIENT_ID
-echo $(ARM_CLIENT_ID)
 ## terraform init  -backend-config=backend.tfvars
