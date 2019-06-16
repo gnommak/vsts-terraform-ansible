@@ -1,18 +1,3 @@
-variable "a_key" {
-  description = "Access Key."
-  default = {}
-}
-
-variable "s_a_name" { 
-  description = "Storage Account Name."
-  default = {}
-}
-
-variable "c_name" {
-  description = "Container-name."
-  default = {}  
-}
-
 variable "rg_prefix" {
   description = "The shortened abbreviation to represent your resource group that will go on the front of some resources."
   default     = "rg"
@@ -30,7 +15,7 @@ variable "lb_ip_dns_name" {
 
 variable "location" {
   description = "The location/region where the virtual network is created. Changing this forces a new resource to be created."
-  default     = "eastus"
+  default     = "westeurope"
 }
 
 variable "virtual_network_name" {

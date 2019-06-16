@@ -8,12 +8,7 @@ provider "azurerm" {}
 # Create a resource group if it doesn’t exist
 resource "azurerm_resource_group" "rg" {
   name     = "javademo"
-  location = "eastus"
-
-  tags {
-    environment = "Terraform Demo"
-  }
-}
+  location = "${var.location}"
 
 resource "azurerm_storage_account" "stor" {
   name                     = "${var.dns_name}stor"

@@ -13,7 +13,4 @@ echo "    access_key = \"$ARM_ACCESS_KEY\"" >> $TF_WS
 echo "  }" >> $TF_WS
 echo "}" >> $TF_WS
 
-ls /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/
-cat $TF_WS
-
 echo "Run"
