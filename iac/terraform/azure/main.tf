@@ -6,6 +6,10 @@ terraform {
 provider "azurerm" {}
 
 # Create a resource group if it doesn’t exist
+resource "random_id" "instance_id" {
+ byte_length = 8
+}
+
 resource "azurerm_resource_group" "rg" {
   name     = "javademo"
   location = "${var.location}"
