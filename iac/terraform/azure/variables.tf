@@ -47,3 +47,8 @@ variable "vm_size" {
   description = "Specifies the size of the virtual machine."
   default     = "Standard_D1"
 }
+
+varible "ssh_keys" {
+  description = "Public SSH Key."
+  default = {}
+}

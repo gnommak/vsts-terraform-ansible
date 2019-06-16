@@ -151,7 +151,7 @@ resource "azurerm_virtual_machine" "vm" {
 
     ssh_keys {
       path     = "/home/azureuser/.ssh/authorized_keys"
-      key_data = "${var.ssh_key}"
+      key_data = "${var.ssh_keys}"
     }
   }
 }
