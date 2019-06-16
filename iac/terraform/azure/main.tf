@@ -9,6 +9,7 @@ provider "azurerm" {}
 resource "azurerm_resource_group" "rg" {
   name     = "javademo"
   location = "${var.location}"
+}
 
 resource "azurerm_storage_account" "stor" {
   name                     = "${var.dns_name}stor"
@@ -161,4 +162,4 @@ output "vm_ip" {
 
 output "vm_dns" {
   value = "http://${azurerm_public_ip.lbpip.fqdn}"
-}
+  }
