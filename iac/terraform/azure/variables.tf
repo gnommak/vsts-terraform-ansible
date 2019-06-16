@@ -1,9 +1,16 @@
-variable "storage-account-name" {
-  default = "vstsbuildterraform"
+variable "a_key" {
+  description = "Access Key."
+  default = {}
 }
 
-variable "container-name" {
-  default = "terraform-state"
+variable "s_a_name" { 
+  description = "Storage Account Name."
+  default {}
+}
+
+variable "c_name" {
+  description "Container-name."
+  default {}  
 }
 
 variable "rg_prefix" {
