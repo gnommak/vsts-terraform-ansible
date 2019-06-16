@@ -16,7 +16,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_storage_account" "stor" {
-  name                     = "${var.dns_name}--${random_id.instance_id.hex}-stor"
+  name                     = "${var.dns_name}-stor"
   location                 = "${azurerm_resource_group.rg.location}"
   resource_group_name      = "${azurerm_resource_group.rg.name}"
   account_tier             = "${var.storage_account_tier}"
@@ -124,13 +124,13 @@ resource "azurerm_network_interface" "nic" {
 
 # Create virtual machine
 resource "azurerm_virtual_machine" "vm" {
-  name                  = "vm${count.index}"
+  name                  = "vm${count.index}-${random_id.instance_id.hex}"
   location              = "${azurerm_resource_group.rg.location}"
   resource_group_name   = "${azurerm_resource_group.rg.name}"
   availability_set_id   = "${azurerm_availability_set.avset.id}"
   network_interface_ids = ["${element(azurerm_network_interface.nic.*.id, count.index)}"]
   count                 = 2
-  vm_size               = "Standard_D1"
+  vm_size               = "${var.vm_size}"
 
   storage_os_disk {
     name          = "osdisk${count.index}"
