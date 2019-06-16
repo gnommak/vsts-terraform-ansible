@@ -12,7 +12,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_storage_account" "stor" {
-  name                     = "${var.dns_name}stor"
+  name                     = "${var.dns_name}--${random_id.instance_id.hex}-stor"
   location                 = "${azurerm_resource_group.rg.location}"
   resource_group_name      = "${azurerm_resource_group.rg.name}"
   account_tier             = "${var.storage_account_tier}"
