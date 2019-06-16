@@ -7,14 +7,14 @@ echo "************* execute terraform init"
 ## export ARM_TENANT_ID=$4
 ## export ARM_ACCESS_KEY=$5
 
-touch /_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
-echo ARM_CLIENT_ID = \"$ARM_CLIENT_ID\" >> /_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
-echo ARM_CLIENT_SECRET = \"$ARM_CLIENT_SECRET\" >> /_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
-echo ARM_SUBSCRIPTION = \"$ARM_SUBSCRIPTION\" >> /_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
-echo ARM_TENANT_ID = \"$ARM_TENANT_ID\" >> /_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
-echo ARM_ACCESS_KEY = \"$ARM_ACCESS_KEY\" >> /_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+touch /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo ARM_CLIENT_ID = \"$ARM_CLIENT_ID\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo ARM_CLIENT_SECRET = \"$ARM_CLIENT_SECRET\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo ARM_SUBSCRIPTION = \"$ARM_SUBSCRIPTION\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo ARM_TENANT_ID = \"$ARM_TENANT_ID\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+echo ARM_ACCESS_KEY = \"$ARM_ACCESS_KEY\" >> /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
 
-cat /_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
+cat /home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/backend.tfvars
 
 echo "Run"
 ## terraform init  -backend-config=backend.tfvars
