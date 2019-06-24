@@ -122,15 +122,15 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 
-resource "azurerm_network_interface_backend_address_pool_association" "lbs" {
+resource "azurerm_network_interface_backend_address_pool_association" "a_pool" {
   network_interface_id    = "${azurerm_network_interface.nic[count.index].id}"
   ip_configuration_name   = "ipconfig${count.index}"
   backend_address_pool_id = "${azurerm_lb_backend_address_pool.backend_pool.id}"
   count                   = 2
 }
 
-resource "azurerm_network_interface_nat_rule_association" "test" {
-  network_interface_id  = "${azurerm_network_interface.test.id}"
+resource "azurerm_network_interface_nat_rule_association" "nat_rule " {
+  network_interface_id  = "${azurerm_network_interface.nic[count.index].id}"
   ip_configuration_name = "testconfiguration1"
   nat_rule_id           = "${element(azurerm_lb_nat_rule.tcp.*.id, count.index)}"
   count                 = 2
