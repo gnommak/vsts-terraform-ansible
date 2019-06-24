@@ -117,10 +117,17 @@ resource "azurerm_network_interface" "nic" {
     name                                    = "ipconfig${count.index}"
     subnet_id                               = "${azurerm_subnet.subnet.id}"
     private_ip_address_allocation           = "Dynamic"
-    load_balancer_backend_address_pools_ids = ["${azurerm_lb_backend_address_pool.backend_pool.id}"]
-    load_balancer_inbound_nat_rules_ids     = ["${element(azurerm_lb_nat_rule.tcp.*.id, count.index)}"]
+    //load_balancer_backend_address_pools_ids = ["${azurerm_lb_backend_address_pool.backend_pool.id}"]
+    //load_balancer_inbound_nat_rules_ids     = ["${element(azurerm_lb_nat_rule.tcp.*.id, count.index)}"]
   }
 }
+
+resource "azurerm_network_interface_backend_address_pool_association" "lb" {
+  network_interface_id    = "${azurerm_network_interface.nic.id}"
+  ip_configuration_name   = "ipconfigurationbackend"
+  backend_address_pool_id = "${azurerm_lb_backend_address_pool.backend_pool.id}"
+}
+
 
 # Create virtual machine
 resource "azurerm_virtual_machine" "vm" {
