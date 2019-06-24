@@ -123,7 +123,7 @@ resource "azurerm_network_interface" "nic" {
 }
 
 resource "azurerm_network_interface_backend_address_pool_association" "lb" {
-  network_interface_id    = ["${element(azurerm_network_interface.nic.*.id, count.index)}"]
+  network_interface_id    = "${azurerm_network_interface.nic[count.index].id}"
   ip_configuration_name   = "ipconfigurationbackend"
   backend_address_pool_id = "${azurerm_lb_backend_address_pool.backend_pool.id}"
 }
