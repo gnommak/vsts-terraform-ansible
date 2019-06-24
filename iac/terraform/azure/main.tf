@@ -131,7 +131,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "a_pool" {
 
 resource "azurerm_network_interface_nat_rule_association" "nat_rule" {
   network_interface_id  = "${azurerm_network_interface.nic[count.index].id}"
-  ip_configuration_name = "testconfiguration1"
+  ip_configuration_name = "ipconfig${count.index}"
   nat_rule_id           = "${element(azurerm_lb_nat_rule.tcp.*.id, count.index)}"
   count                 = 2
 }
