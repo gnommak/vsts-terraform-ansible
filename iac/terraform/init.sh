@@ -5,6 +5,8 @@ echo "************* execute terraform init"
 export TF_WS=/home/vsts/work/r1/a/$ENV{"Release.PrimaryArtifactSourceAlias"}/drop/iac/terraform/azure/workspaces.tf
 export TF_VOF=/home/vsts/work/r1/a/$ENV{"Release.PrimaryArtifactSourceAlias"}/drop/iac/terraform/azure/vof.tfvars
 
+printenv
+
 touch $TF_WS
 echo "terraform {" >> $TF_WS
 echo "  backend \"azurerm\" {" >> $TF_WS
