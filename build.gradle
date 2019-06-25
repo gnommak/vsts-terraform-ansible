@@ -110,7 +110,7 @@ dependencies {
     providedCompile 'javax.servlet:javax.servlet-api'
 
     // Testing
-    testImplementation('org.junit.jupiter:junit-jupiter-api:5.4.2')
+    testİmplementation('org.junit.jupiter:junit-jupiter-api:5.4.2')
     testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.2')
 
     // Spring Testing
