@@ -2,10 +2,8 @@
 echo "************* execute terraform init"
 ## execute terrafotm build and sendout to packer-build-output
 ## test1
-export TF_WS=/home/vsts/work/r1/a/$ENV{"Release.PrimaryArtifactSourceAlias"}/drop/iac/terraform/azure/workspaces.tf
-export TF_VOF=/home/vsts/work/r1/a/$ENV{"Release.PrimaryArtifactSourceAlias"}/drop/iac/terraform/azure/vof.tfvars
-
-printenv
+export TF_WS=/home/vsts/work/r1/a/$RELEASE_PRIMARYARTIFACTSOURCEALIAS/drop/iac/terraform/azure/workspaces.tf
+export TF_VOF=/home/vsts/work/r1/a/$RELEASE_PRIMARYARTIFACTSOURCEALIAS/drop/iac/terraform/azure/vof.tfvars
 
 touch $TF_WS
 echo "terraform {" >> $TF_WS
