@@ -1,9 +1,9 @@
 #!/bin/bash
 echo "************* execute terraform init"
 ## execute terrafotm build and sendout to packer-build-output
-## test1
-export TF_WS=/home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/workspaces.tf
-export TF_VOF=/home/vsts/work/r1/a/_Diploma_gnommak-CI/drop/iac/terraform/azure/vof.tfvars
+## test4
+export TF_WS=/home/vsts/work/r1/a/$RELEASE_PRIMARYARTIFACTSOURCEALIAS/drop/iac/terraform/azure/workspaces.tf
+export TF_VOF=/home/vsts/work/r1/a/$RELEASE_PRIMARYARTIFACTSOURCEALIAS/drop/iac/terraform/azure/vof.tfvars
 
 touch $TF_WS
 echo "terraform {" >> $TF_WS
