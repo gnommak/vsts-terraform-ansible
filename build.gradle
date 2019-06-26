@@ -7,7 +7,7 @@ buildscript {
 
     dependencies {
         classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:1.2.5'
-        classpath("io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE")
+        classpath("io.spring.gradle:dependency-management-plugin:0.5.3.RELEASE")
         classpath("org.springframework.build.gradle:propdeps-plugin:0.0.7")
     }
 }
@@ -39,8 +39,8 @@ sourceSets {
     }
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 archivesBaseName = "spring-music"
 
 jar {
@@ -110,8 +110,7 @@ dependencies {
     providedCompile 'javax.servlet:javax.servlet-api'
 
     // Testing
-    testImplementation('org.junit.jupiter:junit-jupiter-api:5.4.2')
-    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.2')
+    testCompile "junit:junit"
 
     // Spring Testing
     testCompile "org.springframework:spring-test"
@@ -121,13 +120,6 @@ dependencies {
     tomcat "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
     tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
         exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
-    }
-}
-
-test {
-    useJUnitPlatform()
-    testLogging {
-        showStandardStreams = true
     }
 }
 
