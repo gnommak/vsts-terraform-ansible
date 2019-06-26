@@ -5,4 +5,6 @@ export TF_WS=/home/vsts/work/r1/a/$RELEASE_PRIMARYARTIFACTSOURCEALIAS/drop/iac/t
 
 cd $TF_WS
 
+sudo apt-get install graphviz
+
 terraform graph | dot -Tsvg > graph.svg
