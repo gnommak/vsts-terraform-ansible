@@ -1,46 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-back
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: web
-  template:
-    metadata:
-      labels:
-        app: web
-    spec:
-      containers:
-      - name: web-back
-        image: gnommak/diploma_gnoma:76
-        resources:
-          requests:
-            cpu: 100m
-            memory: 512Mi
-          limits:
-            cpu: 250m
-            memory: 1024Mi
-        ports:
-        - containerPort: 8080
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: web-back
-spec:
-  ports:
-  - port: 8080
-  selector:
-    app: web
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
   name: web-front
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: web
@@ -51,7 +14,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-front
-        image: gnommak/diploma_gnoma:76
+        image: gnommak/diploma_gnoma:Latest
         resources:
           requests:
             cpu: 100m
