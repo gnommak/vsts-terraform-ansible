@@ -24,7 +24,6 @@ spec:
             memory: 512Mi
         ports:
         - containerPort: 8080
-          name: redis
 ---
 apiVersion: v1
 kind: Service
@@ -34,7 +33,7 @@ spec:
   ports:
   - port: 8080
   selector:
-    app: web-back
+    app: web
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -44,7 +43,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web-front
+      app: web
   template:
     metadata:
       labels:
