@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web-back
-        image: gnommak/diploma_gnoma:${Build.BuildId}
+        image: gnommak/diploma_gnoma:74
         resources:
           requests:
             cpu: 100m
