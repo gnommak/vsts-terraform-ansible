@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web-back
-        image: gnommak/diploma_gnoma:74
+        image: gnommak/diploma_gnoma:75
         resources:
           requests:
             cpu: 100m
@@ -31,7 +31,7 @@ metadata:
   name: web-back
 spec:
   ports:
-  - port: 8080
+  - port: 80
   selector:
     app: web
 ---
@@ -51,7 +51,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-front
-        image: gnommak/diploma_gnoma:${Build.BuildId}
+        image: gnommak/diploma_gnoma:75
         resources:
           requests:
             cpu: 100m
@@ -60,7 +60,7 @@ spec:
             cpu: 250m
             memory: 512Mi
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -69,6 +69,6 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 80
+  - port: 8080
   selector:
     app: web
