@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-front
+  labels:
+    env: Release
 spec:
   replicas: 2
   selector:
