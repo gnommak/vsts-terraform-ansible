@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-front
+  name: spring-music
   labels:
     env: Release
 spec:
@@ -30,7 +30,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-front
+  name: spring-music
+  labels:
+    env: Release
 spec:
   type: LoadBalancer
   ports:
