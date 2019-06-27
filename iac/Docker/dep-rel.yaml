@@ -1,24 +1,75 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rel-dep
-  labels: Prod
-    app: web
+  name: web-back
 spec:
-  replicas: 2 
+  replicas: 1
   selector:
     matchLabels:
       app: web
   template:
     metadata:
       labels:
-          app: web
+        app: web
     spec:
       containers:
-      - name: rel-dep-last
-        image: gnommak/diploma_gnoma
+      - name: web-back
+        image: gnommak/diploma_gnoma:${Build.BuildId}
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 250m
+            memory: 512Mi
         ports:
         - containerPort: 8080
-        env:
-        - name: v
-          value: "0.1"
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-back
+spec:
+  ports:
+  - port: 8080
+  selector:
+    app: web-back
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-front
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: azure-vote-front
+        image: gnommak/diploma_gnoma:${Build.BuildId}
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 250m
+            memory: 512Mi
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: web
