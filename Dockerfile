@@ -6,6 +6,6 @@ COPY /build/libs/spring-music.war /usr/local/tomcat/webapps/
 COPY /iac/Docker/tomcat-users.xml /usr/local/tomcat/conf/
 COPY /iac/Docker/server.xml /usr/local/tomcat/conf/
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD ["catalina.sh", "run"]
